@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "ITF Taekwon-Do App",
-    "slug": "modern-taekwon-do",
+    "slug": "itf-taekwon-dogaston",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -51,7 +51,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "1f3e052d-f0da-4b89-a791-eed4844dd722"
+        "projectId": "3e511585-0b51-4b49-b422-6466d7066ee9"
       }
     },
     "owner": "gvaldes79",

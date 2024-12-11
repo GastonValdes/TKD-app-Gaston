@@ -27,9 +27,7 @@ const Page = (props: Props) => {
         <TouchableOpacity onPress={handleEmailPress}>
           <Text style={styles.link}>gastonvaldes@gmail.com</Text>
         </TouchableOpacity>
-        <Text style={styles.textarea}>{"\n"}Colaboración y revisión de contenidos</Text>
-        <Text style={styles.textarea}>Sabum Nim Diego Fiege Vallés</Text>
-        <Text>5to DAN Internacional Taekwon-do ITF</Text>
+        <Text style={{textAlign: 'center'}}>Esta Aplicacion no tiene afiliacion con la International Taekwon-Do Federation{"\n"}Su contenido refleja las enseñanzas del estilo de Taekwon-Do ITF desarrollado por el General Choi Hong Hi</Text>
       </View>
     </View>
   );

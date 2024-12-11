@@ -18,10 +18,9 @@ const CategoryButtons = ({ onCategoryChanged }: Props) => {
 
     return (
         <View style={{ paddingHorizontal: 15 }}>
-            <Text style={styles.title}>Categorias</Text>
+            
             <ScrollView
                 horizontal
-                showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{
                     gap: 20,
                     paddingVertical: 10,
