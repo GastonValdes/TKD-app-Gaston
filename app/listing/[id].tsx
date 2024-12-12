@@ -76,7 +76,6 @@ const imageMapping: Record<string, any> = {
     "cantodemano1.png": require("@/assets/images/cantodemano1.png"),
     "cantodemano2.png": require("@/assets/images/cantodemano2.png"),
     "3_dosan.png": require("@/assets/images/3_dosan.png"),
-    "lineatecnica.png": require("@/assets/images/lineatecnica.png"),
     "nuevologoitf.png": require("@/assets/images/nuevologoitf.png"),
     "1erlogoitf.png": require("@/assets/images/1erlogoitf.png"),
     "def1.png": require("@/assets/images/def1.png"),
