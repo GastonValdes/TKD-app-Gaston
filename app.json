@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "ITF Taekwon-Do App",
+    "name": "Gaston Taekwon-Do",
     "slug": "itf-taekwon-dogaston",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -20,7 +20,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.gvaldes79.moderntaekwondo"
+      "package": "com.gvaldes79.gastontaekwondo"
     },
     "web": {
       "bundler": "metro",
