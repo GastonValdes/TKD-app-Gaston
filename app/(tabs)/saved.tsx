@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, ScrollView
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import { Link, Stack, useRouter, useSegments } from "expo-router";
 import { ListingType } from '@/types/listingTypes';
-import listingData from "@/data/destinations.json";
+import listingData from "@/data/datacontent.json";
 import { Ionicons } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
 import Header from '@/components/Header';

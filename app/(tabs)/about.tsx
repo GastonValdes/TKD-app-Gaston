@@ -27,7 +27,7 @@ const Page = (props: Props) => {
         <TouchableOpacity onPress={handleEmailPress}>
           <Text style={styles.link}>gastonvaldes@gmail.com</Text>
         </TouchableOpacity>
-        <Text style={{textAlign: 'center'}}>Esta Aplicacion no tiene afiliacion con la International Taekwon-Do Federation{"\n"}Su contenido refleja las enseñanzas del estilo de Taekwon-Do ITF desarrollado por el General Choi Hong Hi</Text>
+        <Text style={styles.aboutText}>Cree esta aplicación para compartir el conocimiento que adquirí a lo largo de 15 años entrenando Taekwondo-ITF.{"\n"} Esta Aplicacion no tiene afiliacion con la International Taekwon-Do Federation.{"\n"}Su contenido refleja las enseñanzas del estilo de Taekwon-Do ITF desarrollado por el General Choi Hong Hi y documentado en la Enciclopedia de Taekwon-Do</Text>
       </View>
     </View>
   );
@@ -60,5 +60,18 @@ const styles = StyleSheet.create({
   link: {
     color: 'blue',
     textDecorationLine: 'underline',
+  },
+  aboutText: {
+    color: Colors.softText,
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    textAlign: 'center',
+    textShadowColor: Colors.black,
+    borderColor: Colors.softText,
+    borderStyle: 'solid',
+    borderRadius: 20,
+    backgroundColor: Colors.white,
+    marginHorizontal: 15,
+    marginVertical: 15,
   },
 });

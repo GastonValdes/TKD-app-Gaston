@@ -22,7 +22,7 @@ const TabLayout = () => {
           }}
         />
         <Tabs.Screen
-          name="settings"
+          name="about"
           options={{
             title: "Acerca de",
           }}

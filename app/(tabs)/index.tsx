@@ -4,7 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import Header from '@/components/Header'
 import CategoryButtons from '@/components/CategoryButtons'
 import Listings from '@/components/Listings'
-import ListinData from '@/data/destinations.json';
+import ListinData from '@/data/datacontent.json';
 
 type Props = {}
 
