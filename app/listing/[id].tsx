@@ -543,8 +543,9 @@ const renderModal = () => (
     
                     <Text style={styles.sectiontitle}>{listing.section3}</Text>
                     {Array.from({ length: 19 }, (_, i) => renderTheoryBlock(i + 22))}
-    
+                    <View style={styles.videoBlock}>
                     {renderVideos(listing)}
+                    </View>
                 </ScrollView>
                 {renderModal()}
             </View>
@@ -684,6 +685,19 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '500',
       },
+      videoBlock: {
+        backgroundColor: Colors.white,
+        position: 'relative',
+        borderRadius: 30,
+        borderWidth: 2,
+        borderColor: Colors.lightGrey,
+        overflow: 'hidden',
+        shadowColor: '#080606',
+        shadowOffset: {width: -2, height: 4},
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+        elevation: 5,
+      }
 });
 
 export default ListingDetails;
