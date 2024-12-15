@@ -25,4 +25,11 @@ export const icon = {
     ) : (
       <Ionicons name="person-outline" size={24} color={color} />
     ),
+    settings: ({ color, focused }: { color: string; focused: boolean }) =>
+      focused ? (
+        <Ionicons name="settings" size={24} color={color} />
+      ) : (
+        <Ionicons name="settings-outline" size={24} color={color} />
+      ),
+      
 };

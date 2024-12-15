@@ -1,0 +1,67 @@
+import { StyleSheet, Text, View, Image, Linking, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Header from '@/components/Header';
+import { Colors } from '@/constants/Colors';
+
+type Props = {};
+
+const settings = (props: Props) => {
+  const { top: safeTop } = useSafeAreaInsets();
+
+  const handleEmailPress = () => {
+    Linking.openURL('mailto:gastonvaldes@gmail.com');
+  };
+
+  return (
+    <View style={[styles.container, { paddingTop: safeTop }]}>
+      <Header />
+      <View style={{ alignItems: 'center' }}>
+        <Text style={styles.title}>Settings</Text>
+         </View>
+    </View>
+  );
+};
+
+export default settings;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  centerImg: {
+    borderRadius: 30,
+    paddingVertical: 50,
+    width: 100,
+    height: 100,
+  },
+  title: {
+    paddingVertical: 50,
+    textAlign: 'center',
+    fontSize: 30,
+    color: Colors.tabIconSelected,
+    fontWeight: '600',
+  },
+  textarea: {
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: '600',
+  },
+  link: {
+    color: 'blue',
+    textDecorationLine: 'underline',
+  },
+  aboutText: {
+    color: Colors.softText,
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    textAlign: 'center',
+    textShadowColor: Colors.black,
+    borderColor: Colors.softText,
+    borderStyle: 'solid',
+    borderRadius: 20,
+    backgroundColor: Colors.white,
+    marginHorizontal: 15,
+    marginVertical: 15,
+  },
+});
