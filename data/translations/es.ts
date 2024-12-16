@@ -1,9 +1,10 @@
-[
+import { ListingTranslationType } from "./types";
+export const esContent: ListingTranslationType[] = [
     {
         "id": "1",
         "name": "Cinturon Blanco",
         "image": "blanco.png",
-        "description": "Requisitos para examen decinturon blanco (10 Gup)",
+        "description": "Requisitos para examen de cinturon blanco (10 Gup)",
         "section1": "Requisitos para examen",
         "titletheory1":"SAJU CHIRUGY (1° EN CRUZ)",
         "theory1": "Golpe de puño en posición de caminar altura media (gunnun so kaunde ap jirugi)\n• Se debe ejecutar en posición de caminar.\n • La mano que golpea sale desde el cinturón.\n • La mano opuesta se coloca sobre la cadera a la altura del cinto.\n • El golpe se realiza con los nudillos de los dedos índice y anular en dirección de la zona del plexo solar (medio del pecho).\nDefensa baja posición de caminar (gunnun so palmok najunde makgi)\n • Las manos se deben cruzar sobre la línea del pecho opuesto la defensa.\n • La mano que realiza la defensa se debe cruzar por sobre la otra.\n • La mano que realiza la defensa, al momento de cruzarse, debe estar con los dedos hacia arriba y la otra con los dedos hacia abajo.\nAl momento de la defensa la mano se ubicará en la línea del pie de adelante aproximadamente a 20cm. de distancia de la rodilla.",
@@ -3050,6 +3051,7 @@
         "imageth21a":"",
         "imageth21b":"",
         "imageth21c":"",
+        "section3":"",
         "titletheory22":"CHOI-YONG",
         "theory22": "nombrada como el General Choi Yong, Primer Ministro y Comandante de las fuerzas Armadas durante la Dinastía Koryo del siglo 14. Choi Yong era muy respetado por su lealtad, patriotismo y humildad. Fue ejecutado por sus comandantes subordinados liderados por el General Yi Sung Gae, quién luego se convirtió en el primer rey de la Dinastía Yi.",
         "imageth22a":"",
@@ -6928,7 +6930,7 @@
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
-        "category": "Filosofía"
+        "category": "Filosofia"
     },
     {
         "id": "13",
@@ -7140,5 +7142,5 @@
         "imageth40c":"",
         "category": ""
     }
-    
-]
+
+];

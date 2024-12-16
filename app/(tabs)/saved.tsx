@@ -7,6 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
 import Header from '@/components/Header';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useTranslation } from 'react-i18next';
 
 const { width } = Dimensions.get('window');
 
@@ -32,7 +33,7 @@ const BookmarkedListings = () => {
     const segments = useSegments();
     const router = useRouter();
     const prevSegmentRef = useRef<string | null>(null);
-
+    const { t } = useTranslation();
     const loadBookmarkedItems = useCallback(async () => {
         try {
             const bookmarkedIds = await AsyncStorage.getItem('bookmark');
@@ -98,31 +99,23 @@ const BookmarkedListings = () => {
     const renderContent = () => {
         if (isLoading && bookmarkedItems.length === 0) {
             return (
-                <View style={styles.emptyContainer}>
-                    <Text>Cargando...</Text>
-                </View>
+              <View style={styles.emptyContainer}>
+                <Text>{t('loading')}</Text>
+              </View>
             );
         }
 
         if (!isLoading && bookmarkedItems.length === 0) {
             return (
-                <View style={styles.emptyContainer}>
-                    <Ionicons 
-                        name="bookmark-outline" 
-                        size={64} 
-                        color={Colors.primaryColor}
-                    />
-                    <Text style={styles.emptyText}>
-                        No tienes favoritos guardados
-                    </Text>
-                    <Link href="/" asChild>
-                        <TouchableOpacity style={styles.browseButton}>
-                            <Text style={styles.browseButtonText}>
-                                Explorar Contenido
-                            </Text>
-                        </TouchableOpacity>
-                    </Link>
-                </View>
+              <View style={styles.emptyContainer}>
+                <Ionicons name="bookmark-outline" size={64} color={Colors.primaryColor} />
+                <Text style={styles.emptyText}>{t('noFavorites')}</Text>
+                <Link href="/" asChild>
+                  <TouchableOpacity style={styles.browseButton}>
+                    <Text style={styles.browseButtonText}>{t('exploreContent')}</Text>
+                  </TouchableOpacity>
+                </Link>
+              </View>
             );
         }
 

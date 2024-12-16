@@ -3,22 +3,22 @@ import React from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Header from '@/components/Header';
 import { Colors } from '@/constants/Colors';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from '@/components/LanguageSelector';
 
 type Props = {};
 
 const settings = (props: Props) => {
+  const { t } = useTranslation();
   const { top: safeTop } = useSafeAreaInsets();
-
-  const handleEmailPress = () => {
-    Linking.openURL('mailto:gastonvaldes@gmail.com');
-  };
 
   return (
     <View style={[styles.container, { paddingTop: safeTop }]}>
       <Header />
       <View style={{ alignItems: 'center' }}>
-        <Text style={styles.title}>Settings</Text>
-         </View>
+        <Text style={styles.title}>{t('settingsTitle')}</Text>
+        <LanguageSelector />
+      </View>
     </View>
   );
 };

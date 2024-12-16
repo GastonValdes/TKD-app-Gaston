@@ -1,12 +1,13 @@
-[
+import { ListingTranslationType } from "./types";
+export const enContent: ListingTranslationType[] = [
     {
         "id": "1",
-        "name": "Cinturon Blanco",
+        "name": "White Belt",
         "image": "blanco.png",
-        "description": "Requisitos para examen decinturon blanco (10 Gup)",
-        "section1": "Requisitos para examen",
-        "titletheory1":"SAJU CHIRUGY (1° EN CRUZ)",
-        "theory1": "Golpe de puño en posición de caminar altura media (gunnun so kaunde ap jirugi)\n• Se debe ejecutar en posición de caminar.\n • La mano que golpea sale desde el cinturón.\n • La mano opuesta se coloca sobre la cadera a la altura del cinto.\n • El golpe se realiza con los nudillos de los dedos índice y anular en dirección de la zona del plexo solar (medio del pecho).\nDefensa baja posición de caminar (gunnun so palmok najunde makgi)\n • Las manos se deben cruzar sobre la línea del pecho opuesto la defensa.\n • La mano que realiza la defensa se debe cruzar por sobre la otra.\n • La mano que realiza la defensa, al momento de cruzarse, debe estar con los dedos hacia arriba y la otra con los dedos hacia abajo.\nAl momento de la defensa la mano se ubicará en la línea del pie de adelante aproximadamente a 20cm. de distancia de la rodilla.",
+        "description": "White belt (10 Gup) exam requirements",
+        "section1": "Exam requirements",
+        "titletheory1":"SAJU CHIRUGY (1° CROSS)",
+        "theory1": "Punch in walking stance, middle height (gunnun so kaunde ap jirugi)\n• It must be executed in a walking stance.\n • The striking hand starts from the belt.\n • The opposite hand is placed on the hip at belt height.\n • The punch is delivered with the knuckles of the index and middle fingers, directed towards the solar plexus area (middle of the chest).\nLow block in walking stance (gunnun so palmok najunde makgi)\n • The hands should cross in front of the chest, opposite to the blocking hand.\n • The hand performing the block must cross over the other hand.\n • When crossing, the blocking hand should have the fingers pointing up, and the other hand should have the fingers pointing down.\nAt the moment of the block, the hand should be positioned along the line of the front foot, approximately 20 cm away from the knee.",
         "imageth1a":"sajuchiruji.png",
         "imageth1b":"defensaBaja.png",
         "imageth1c":"",
@@ -3050,6 +3051,7 @@
         "imageth21a":"",
         "imageth21b":"",
         "imageth21c":"",
+        "section3":"",
         "titletheory22":"CHOI-YONG",
         "theory22": "nombrada como el General Choi Yong, Primer Ministro y Comandante de las fuerzas Armadas durante la Dinastía Koryo del siglo 14. Choi Yong era muy respetado por su lealtad, patriotismo y humildad. Fue ejecutado por sus comandantes subordinados liderados por el General Yi Sung Gae, quién luego se convirtió en el primer rey de la Dinastía Yi.",
         "imageth22a":"",
@@ -6928,7 +6930,7 @@
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
-        "category": "Filosofía"
+        "category": "Filosofia"
     },
     {
         "id": "13",
@@ -7140,5 +7142,5 @@
         "imageth40c":"",
         "category": ""
     }
-    
-]
+
+];

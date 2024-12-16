@@ -2,7 +2,6 @@ import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, ScrollView
 import React, { useEffect, useState, useRef } from "react";
 import { router, Stack, useLocalSearchParams } from "expo-router";
 import { ListingType } from '@/types/listingTypes';
-import listingData from "@/data/datacontent.json";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
 import Header from '@/components/Header';
@@ -12,16 +11,16 @@ import * as ScreenOrientation from 'expo-screen-orientation';
 import FullscreenVideoPlayer from '@/components/FullscreenVideoPlayer';
 import { Video, ResizeMode } from 'expo-av';
 import CollapsibleTheoryBlock from "@/components/CollapsibleTheoryBlock";
-import ZoomableTheoryBlock from "@/components/ZoomableTheoryBlock";
 import Animated, {
     useAnimatedStyle,
     useSharedValue,
     withSpring,
 } from 'react-native-reanimated';
+import { useTranslation } from 'react-i18next';
+import { useTranslatedContent } from '@/hooks/useTranslatedContent';
 
 const { width, height } = Dimensions.get('window');
-const IMG_HEIGHT = 300;
-
+    
 // Your existing imageMapping object here
 const imageMapping: Record<string, any> = {
     "blanco.png": require("@/assets/images/blanco.png"),
@@ -80,6 +79,10 @@ const imageMapping: Record<string, any> = {
 
 const ListingDetails = () => {
     const { id } = useLocalSearchParams();
+    const { t } = useTranslation();
+    const { getItem } = useTranslatedContent();
+    const listing = getItem(id as string);
+
     const [selectedMedia, setSelectedMedia] = useState<any>(null);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [bookmark, setBookmark] = useState<boolean>(false);
@@ -87,7 +90,10 @@ const ListingDetails = () => {
     const [isVideo, setIsVideo] = useState<boolean>(false);
     const videoRef = useRef(null);
     const [status, setStatus] = useState({});
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
 
+    // Animation values
     const scale = useSharedValue(1);
     const savedScale = useSharedValue(1);
     const translateX = useSharedValue(0);
@@ -95,144 +101,12 @@ const ListingDetails = () => {
     const savedTranslateX = useSharedValue(0);
     const savedTranslateY = useSharedValue(0);
 
-    const [showAlert, setShowAlert] = useState(false);
-    const [alertMessage, setAlertMessage] = useState('');
-
-    const listing: ListingType | undefined = (listingData as ListingType[]).find(
-        (item) => item.id === id
-    );
-
-    // Test AsyncStorage functionality
-    const testAsyncStorage = async () => {
-        try {
-            await AsyncStorage.setItem('test', 'test value');
-            console.log('Test write successful');
-            
-            const testValue = await AsyncStorage.getItem('test');
-            console.log('Test read value:', testValue);
-            
-            const keys = await AsyncStorage.getAllKeys();
-            console.log('All AsyncStorage keys:', keys);
-        } catch (error) {
-            console.error('AsyncStorage test failed:', error);
-        }
-    };
-
-    useEffect(() => {
-        testAsyncStorage();
-        const initializeBookmark = async () => {
-            if (listing) {
-                try {
-                    console.log('Starting bookmark initialization for listing:', listing.id);
-                    setIsLoading(true);
-                    
-                    let bookmarksStr = await AsyncStorage.getItem('bookmark');
-                    console.log('Retrieved bookmarks string:', bookmarksStr);
-                    
-                    if (!bookmarksStr) {
-                        console.log('No bookmarks found, initializing empty array');
-                        bookmarksStr = '[]';
-                        await AsyncStorage.setItem('bookmark', bookmarksStr);
-                    }
-
-                    const bookmarks = JSON.parse(bookmarksStr);
-                    console.log('Parsed bookmarks:', bookmarks);
-                    
-                    const isBookmarked = Array.isArray(bookmarks) && bookmarks.includes(listing.id);
-                    console.log('Is current listing bookmarked?', isBookmarked);
-                    
-                    setBookmark(isBookmarked);
-                    setIsLoading(false);
-                } catch (error) {
-                    console.error('Error in bookmark initialization:', error);
-                    setIsLoading(false);
-                }
-            }
-        };
-
-        initializeBookmark();
-    }, [listing]);
-
-    const saveBookmark = async (itemId: string) => {
-        try {
-            console.log('Starting saveBookmark for ID:', itemId);
-            let bookmarksStr = await AsyncStorage.getItem('bookmark');
-            let bookmarks = [];
-            
-            if (bookmarksStr) {
-                try {
-                    bookmarks = JSON.parse(bookmarksStr);
-                    if (!Array.isArray(bookmarks)) {
-                        bookmarks = [];
-                    }
-                } catch (e) {
-                    bookmarks = [];
-                }
-            }
-    
-            if (!bookmarks.includes(itemId)) {
-                bookmarks.push(itemId);
-                await AsyncStorage.setItem('bookmark', JSON.stringify(bookmarks));
-                setBookmark(true);
-                // Replace alert with custom notification
-                setAlertMessage('Agregado a Favoritos');
-                setShowAlert(true);
-                setTimeout(() => setShowAlert(false), 2000); // Hide after 2 seconds
-            }
-        } catch (error) {
-            console.error('Error in saveBookmark:', error);
-            setAlertMessage('Error al guardar favorito');
-            setShowAlert(true);
-            setTimeout(() => setShowAlert(false), 2000);
-        }
-    };
-    const removeBookmark = async (itemId: string) => {
-        try {
-            console.log('Starting removeBookmark for ID:', itemId);
-            const bookmarksStr = await AsyncStorage.getItem('bookmark');
-            if (!bookmarksStr) return;
-    
-            let bookmarks = JSON.parse(bookmarksStr);
-            if (!Array.isArray(bookmarks)) return;
-    
-            bookmarks = bookmarks.filter((id: string) => id !== itemId);
-            await AsyncStorage.setItem('bookmark', JSON.stringify(bookmarks));
-            setBookmark(false);
-            // Replace alert with custom notification
-            setAlertMessage('Eliminado de Favoritos');
-            setShowAlert(true);
-            setTimeout(() => setShowAlert(false), 2000);
-        } catch (error) {
-            console.error('Error in removeBookmark:', error);
-            setAlertMessage('Error al eliminar favorito');
-            setShowAlert(true);
-            setTimeout(() => setShowAlert(false), 2000);
-        }
-    };
-
-
+    // Basic helper functions first
     const handleImagePress = (imageSource: any) => {
         scale.value = 1;
         setSelectedMedia(imageSource);
         setIsVideo(false);
         setIsModalVisible(true);
-    };
-
-    const renderTouchableImage = (imageSource: any, style: any) => {
-        return (
-            <TouchableOpacity onPress={() => handleImagePress(imageSource)}>
-                <Image
-                    source={imageSource}
-                    style={style}
-                />
-            </TouchableOpacity>
-        );
-    };
-
-    const isVideoFile = (fileName: string) => {
-        return fileName.toLowerCase().endsWith('.mp4') || 
-               fileName.toLowerCase().endsWith('.mov') || 
-               fileName.toLowerCase().endsWith('.avi');
     };
 
     const handleMediaPress = (mediaSource: any, fileName: string) => {
@@ -244,55 +118,77 @@ const ListingDetails = () => {
         setIsModalVisible(true);
     };
 
-    const animatedStyle = useAnimatedStyle(() => {
-        return {
-            transform: [
-                { translateX: translateX.value },
-                { translateY: translateY.value },
-                { scale: scale.value }
-            ]
-        };
+    const isVideoFile = (fileName: string) => {
+        return fileName.toLowerCase().endsWith('.mp4') || 
+               fileName.toLowerCase().endsWith('.mov') || 
+               fileName.toLowerCase().endsWith('.avi');
+    };
+
+    // Rendering helper functions
+    const renderTouchableImage = (imageSource: any, style: any) => {
+        return (
+            <TouchableOpacity onPress={() => handleImagePress(imageSource)}>
+                <Image
+                    source={imageSource}
+                    style={style}
+                />
+            </TouchableOpacity>
+        );
+    };
+
+    const createImageSource = (imagePath: string | undefined) => {
+        if (!imagePath) return null;
+        return imagePath.startsWith("http")
+            ? { uri: imagePath }
+            : imageMapping[imagePath];
+    };
+
+    const createNumberedImageSources = (num: number) => ({
+        a: createImageSource(listing?.[`imageth${num}a` as keyof typeof listing] as string),
+        b: createImageSource(listing?.[`imageth${num}b` as keyof typeof listing] as string),
+        c: createImageSource(listing?.[`imageth${num}c` as keyof typeof listing] as string)
     });
 
-    const pinchGesture = Gesture.Pinch()
-        .onStart(() => {
-            savedScale.value = scale.value;
-        })
-        .onUpdate((event) => {
-            scale.value = savedScale.value * event.scale;
-        })
-        .onEnd(() => {
-            if (scale.value < 1) {
-                scale.value = withSpring(1);
-                translateX.value = withSpring(0);
-                translateY.value = withSpring(0);
-            }
-        });
+    const imageSources = Array.from({ length: 40 }, (_, i) => createNumberedImageSources(i + 1));
 
-    const panGesture = Gesture.Pan()
-        .onStart(() => {
-            savedTranslateX.value = translateX.value;
-            savedTranslateY.value = translateY.value;
-        })
-        .onUpdate((event) => {
-            translateX.value = savedTranslateX.value + event.translationX;
-            translateY.value = savedTranslateY.value + event.translationY;
-        })
-        .onEnd(() => {
-            if (scale.value < 1) {
-                translateX.value = withSpring(0);
-                translateY.value = withSpring(0);
-            }
-        });   
+    // More complex render functions
+    const renderTheoryBlock = (index: number) => {
+        const titleKey = `titletheory${index}` as keyof typeof listing;
+        const theoryKey = `theory${index}` as keyof typeof listing;
+        const sources = imageSources[index - 1];
 
-    const composed = Gesture.Simultaneous(pinchGesture, panGesture);
+        if (!listing?.[titleKey] && !listing?.[theoryKey] && !sources.a && !sources.b && !sources.c) {
+            return null;
+        }
+
+        return (
+            <View key={index} style={styles.blocks}>
+                <CollapsibleTheoryBlock
+                    title={listing?.[titleKey] as string}
+                    theory={listing?.[theoryKey] as string}
+                >
+                    {(sources.a || sources.b || sources.c) && (
+                        <ScrollView
+                            horizontal
+                            showsHorizontalScrollIndicator={false}
+                            contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
+                        >
+                            {sources.a && renderTouchableImage(sources.a, styles.imageSec)}
+                            {sources.b && renderTouchableImage(sources.b, styles.imageSec)}
+                            {sources.c && renderTouchableImage(sources.c, styles.imageSec)}
+                        </ScrollView>
+                    )}
+                </CollapsibleTheoryBlock>
+            </View>
+        );
+    };
 
     const renderVideos = (listing: ListingType) => {
         if (!listing.videos || listing.videos.length === 0) return null;
         
         return (
             <View style={styles.blocks}>
-                <Text style={styles.theorytitle}>Videos</Text>
+                <Text style={styles.theorytitle}>{t('videos')}</Text>
                 <ScrollView
                     horizontal
                     showsHorizontalScrollIndicator={false}
@@ -329,91 +225,134 @@ const ListingDetails = () => {
         );
     };
 
-    const renderTheoryBlock = (index: number) => {
-        const titleKey = `titletheory${index}` as keyof ListingType;
-        const theoryKey = `theory${index}` as keyof ListingType;
-        const sources = imageSources[index - 1];
+    // Bookmark functions
+    const saveBookmark = async (itemId: string) => {
+        try {
+            let bookmarksStr = await AsyncStorage.getItem('bookmark');
+            let bookmarks = [];
+            
+            if (bookmarksStr) {
+                try {
+                    bookmarks = JSON.parse(bookmarksStr);
+                    if (!Array.isArray(bookmarks)) {
+                        bookmarks = [];
+                    }
+                } catch (e) {
+                    bookmarks = [];
+                }
+            }
     
-        if (!listing[titleKey] && !listing[theoryKey] && !sources.a && !sources.b && !sources.c) {
-            return null;
+            if (!bookmarks.includes(itemId)) {
+                bookmarks.push(itemId);
+                await AsyncStorage.setItem('bookmark', JSON.stringify(bookmarks));
+                setBookmark(true);
+                setAlertMessage(t('addedToFavorites'));
+                setShowAlert(true);
+                setTimeout(() => setShowAlert(false), 2000);
+            }
+        } catch (error) {
+            console.error('Error in saveBookmark:', error);
+            setAlertMessage(t('errorSavingFavorite'));
+            setShowAlert(true);
+            setTimeout(() => setShowAlert(false), 2000);
         }
-    
-        return (
-            <View key={index} style={styles.blocks}>
-                <CollapsibleTheoryBlock
-                    title={listing[titleKey] as string}
-                    theory={listing[theoryKey] as string}
-                >
-                    {(sources.a || sources.b || sources.c) && (
-                        <ScrollView
-                            horizontal
-                            showsHorizontalScrollIndicator={false}
-                            contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
-                        >
-                            {sources.a && renderTouchableImage(sources.a, styles.imageSec)}
-                            {sources.b && renderTouchableImage(sources.b, styles.imageSec)}
-                            {sources.c && renderTouchableImage(sources.c, styles.imageSec)}
-                        </ScrollView>
-                    )}
-                </CollapsibleTheoryBlock>
-            </View>
-        );
     };
+
+    const removeBookmark = async (itemId: string) => {
+        try {
+            const bookmarksStr = await AsyncStorage.getItem('bookmark');
+            if (!bookmarksStr) return;
     
-const renderModal = () => (
-        <Modal
-            visible={isModalVisible}
-            transparent={true}
-            onRequestClose={() => {
+            let bookmarks = JSON.parse(bookmarksStr);
+            if (!Array.isArray(bookmarks)) return;
+    
+            bookmarks = bookmarks.filter((id: string) => id !== itemId);
+            await AsyncStorage.setItem('bookmark', JSON.stringify(bookmarks));
+            setBookmark(false);
+            setAlertMessage(t('removedFromFavorites'));
+            setShowAlert(true);
+            setTimeout(() => setShowAlert(false), 2000);
+        } catch (error) {
+            console.error('Error in removeBookmark:', error);
+            setAlertMessage(t('errorRemovingFavorite'));
+            setShowAlert(true);
+            setTimeout(() => setShowAlert(false), 2000);
+        }
+    };
+
+    // Effects
+    useEffect(() => {
+        const initializeBookmark = async () => {
+            if (listing) {
+                try {
+                    setIsLoading(true);
+                    let bookmarksStr = await AsyncStorage.getItem('bookmark');
+                    
+                    if (!bookmarksStr) {
+                        bookmarksStr = '[]';
+                        await AsyncStorage.setItem('bookmark', bookmarksStr);
+                    }
+
+                    const bookmarks = JSON.parse(bookmarksStr);
+                    const isBookmarked = Array.isArray(bookmarks) && bookmarks.includes(listing.id);
+                    setBookmark(isBookmarked);
+                    setIsLoading(false);
+                } catch (error) {
+                    console.error('Error in bookmark initialization:', error);
+                    setIsLoading(false);
+                }
+            }
+        };
+
+        initializeBookmark();
+    }, [listing]);
+
+    // Gesture handlers
+    const pinchGesture = Gesture.Pinch()
+        .onStart(() => {
+            savedScale.value = scale.value;
+        })
+        .onUpdate((event) => {
+            scale.value = savedScale.value * event.scale;
+        })
+        .onEnd(() => {
+            if (scale.value < 1) {
                 scale.value = withSpring(1);
                 translateX.value = withSpring(0);
                 translateY.value = withSpring(0);
-                setIsModalVisible(false);
-            }}
-            animationType="fade"
-        >
-            <GestureHandlerRootView style={{ flex: 1 }}>
-                <View style={styles.modalContainer}>
-                    <TouchableOpacity 
-                        style={styles.closeButton}
-                        onPress={() => {
-                            scale.value = withSpring(1);
-                            translateX.value = withSpring(0);
-                            translateY.value = withSpring(0);
-                            setIsModalVisible(false);
-                        }}
-                    >
-                        <Feather name="x" size={30} color="white" />
-                    </TouchableOpacity>
-                    
-                    {isVideo ? (
-                        <FullscreenVideoPlayer
-                            source={selectedMedia}
-                            isVisible={isModalVisible}
-                            onClose={() => {
-                                setIsModalVisible(false);
-                            }}
-                        />
-                    ) : (
-                        <GestureDetector gesture={composed}>
-                            <Animated.View style={[styles.modalBackground]}>
-                                <Animated.Image
-                                    source={selectedMedia}
-                                    style={[styles.fullScreenImage, animatedStyle]}
-                                    resizeMode="contain"
-                                />
-                            </Animated.View>
-                        </GestureDetector>
-                    )}
-                </View>
-            </GestureHandlerRootView>
-        </Modal>
-    );
+            }
+        });
+
+    const panGesture = Gesture.Pan()
+        .onStart(() => {
+            savedTranslateX.value = translateX.value;
+            savedTranslateY.value = translateY.value;
+        })
+        .onUpdate((event) => {
+            translateX.value = savedTranslateX.value + event.translationX;
+            translateY.value = savedTranslateY.value + event.translationY;
+        })
+        .onEnd(() => {
+            if (scale.value < 1) {
+                translateX.value = withSpring(0);
+                translateY.value = withSpring(0);
+            }
+        });
+
+    const composed = Gesture.Simultaneous(pinchGesture, panGesture);
+
+    const animatedStyle = useAnimatedStyle(() => ({
+        transform: [
+            { translateX: translateX.value },
+            { translateY: translateY.value },
+            { scale: scale.value }
+        ]
+    }));
 
     if (!listing) {
         return (
             <View style={styles.container}>
-                <Text style={styles.errorText}>Listing not found.</Text>
+                <Text style={styles.errorText}>{t('listingNotFound')}</Text>
             </View>
         );
     }
@@ -421,20 +360,6 @@ const renderModal = () => (
     const imageSource = listing.image.startsWith("http")
         ? { uri: listing.image }
         : imageMapping[listing.image];
-
-    const createImageSource = (imagePath: string) => {
-        return imagePath.startsWith("http")
-            ? { uri: imagePath }
-            : imageMapping[imagePath];
-    };
-
-    const createNumberedImageSources = (num: number) => ({
-        a: createImageSource(listing[`imageth${num}a`]),
-        b: createImageSource(listing[`imageth${num}b`]),
-        c: createImageSource(listing[`imageth${num}c`])
-    });
-
-    const imageSources = Array.from({ length: 40 }, (_, i) => createNumberedImageSources(i + 1));
 
     return (
         <>
@@ -447,27 +372,12 @@ const renderModal = () => (
             />
             <View style={styles.container}>
                 <Header/>
+                
                 {/* Back Button */}
                 <TouchableOpacity 
-                    style={{
-                        position: 'absolute',
-                        top: 40,
-                        left: 20,
-                        zIndex: 999,
-                        padding: 15,
-                        backgroundColor: 'white',
-                        borderRadius: 20,
-                        shadowColor: '#000',
-                        shadowOffset: { width: 0, height: 2 },
-                        shadowOpacity: 0.25,
-                        shadowRadius: 3.84,
-                        elevation: 5,
-                    }}
+                    style={styles.backButton}
                     activeOpacity={0.6}
-                    onPress={() => {
-                        console.log('Back button pressed');
-                        router.replace('/(tabs)');
-                    }}
+                    onPress={() => router.replace('/(tabs)')}
                 >
                     <Ionicons 
                         name="arrow-back" 
@@ -478,27 +388,10 @@ const renderModal = () => (
     
                 {/* Bookmark Button */}
                 <TouchableOpacity 
-                    style={{
-                        position: 'absolute',
-                        top: 40,
-                        right: 20,
-                        zIndex: 999,
-                        padding: 15,
-                        backgroundColor: 'white',
-                        borderRadius: 20,
-                        shadowColor: '#000',
-                        shadowOffset: { width: 0, height: 2 },
-                        shadowOpacity: 0.25,
-                        shadowRadius: 3.84,
-                        elevation: 5,
-                    }}
+                    style={styles.bookmarkButton}
                     activeOpacity={0.6}
                     onPress={() => {
-                        console.log('Bookmark button pressed!');
-                        if (isLoading || !listing) {
-                            console.log('Cannot proceed - loading or no listing');
-                            return;
-                        }
+                        if (isLoading || !listing) return;
                         if (bookmark) {
                             removeBookmark(listing.id);
                         } else {
@@ -517,7 +410,7 @@ const renderModal = () => (
                 {showAlert && (
                     <Animated.View style={styles.alertContainer}>
                         <Ionicons 
-                            name={alertMessage.includes('Agregado') ? 'bookmark' : 'bookmark-outline'} 
+                            name={alertMessage.includes(t('addedToFavorites')) ? 'bookmark' : 'bookmark-outline'} 
                             size={20} 
                             color="white" 
                         />
@@ -525,6 +418,7 @@ const renderModal = () => (
                     </Animated.View>
                 )}
     
+                {/* Main Content */}
                 <View style={{ flexDirection: 'row'}}>
                     <View style={{ flex:1}}>
                         {renderTouchableImage(imageSource, styles.image)}
@@ -534,6 +428,7 @@ const renderModal = () => (
                         <Text style={styles.description}>{listing.description}</Text>
                     </View>            
                 </View>
+                
                 <ScrollView>
                     <Text style={styles.sectiontitle}>{listing.section1}</Text>
                     {Array.from({ length: 12 }, (_, i) => renderTheoryBlock(i + 1))}
@@ -543,15 +438,67 @@ const renderModal = () => (
     
                     <Text style={styles.sectiontitle}>{listing.section3}</Text>
                     {Array.from({ length: 19 }, (_, i) => renderTheoryBlock(i + 22))}
+                    
                     <View style={styles.videoBlock}>
-                    {renderVideos(listing)}
+                        {renderVideos(listing)}
                     </View>
                 </ScrollView>
-                {renderModal()}
-            </View>
+                <Modal
+    visible={isModalVisible}
+    transparent={true}
+    onRequestClose={() => {
+        scale.value = withSpring(1);
+        translateX.value = withSpring(0);
+        translateY.value = withSpring(0);
+        setIsModalVisible(false);
+    }}
+    animationType="fade"
+>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+        <View style={styles.modalContainer}>
+            <TouchableOpacity 
+                style={styles.closeButton}
+                onPress={() => {
+                    scale.value = withSpring(1);
+                    translateX.value = withSpring(0);
+                    translateY.value = withSpring(0);
+                    setIsModalVisible(false);
+                }}
+            >
+                <Feather name="x" size={30} color="white" />
+            </TouchableOpacity>
+            
+            {isVideo ? (
+                <FullscreenVideoPlayer
+                    source={selectedMedia}
+                    isVisible={isModalVisible}
+                    onClose={() => {
+                        setIsModalVisible(false);
+                    }}
+                />
+            ) : (
+                <GestureDetector gesture={composed}>
+                    <Animated.View style={[styles.modalBackground]}>
+                        <Animated.Image
+                            source={selectedMedia}
+                            style={[styles.fullScreenImage, animatedStyle]}
+                            resizeMode="contain"
+                        />
+                    </Animated.View>
+                </GestureDetector>
+            )}
+        </View>
+    </GestureHandlerRootView>
+</Modal>
+
+</View>
         </>
     );
- }  
+};
+
+
+
+
 const styles = StyleSheet.create({
     modalContainer: {
         flex: 1,
@@ -579,6 +526,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         borderRadius: 20,
     },
+    
     container: {
         flex: 1,
     },
@@ -697,7 +645,36 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.2,
         shadowRadius: 3,
         elevation: 5,
-      }
+      },
+      backButton: {
+        position: 'absolute',
+        top: 40,
+        left: 20,
+        zIndex: 999,
+        padding: 15,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    bookmarkButton: {
+        position: 'absolute',
+        top: 40,
+        right: 20,
+        zIndex: 999,
+        padding: 15,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+
 });
 
 export default ListingDetails;
