@@ -10,7 +10,7 @@ const Header = (props: Props) => {
     const {top: safeTop} = useSafeAreaInsets ();
     return (
         <View style={styles.container}>
-            <Image source={require('@/assets/images/Header-GV_2.png')} style={styles.userImg}/>
+            <Image source={require('@/assets/images/Header.png')} style={styles.userImg}/>
         </View>
     )
 }
