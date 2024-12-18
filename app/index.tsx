@@ -25,7 +25,7 @@ const Page = () => {
             style={styles.title}
             entering={FadeInRight.delay(300).duration(500)}
           >
-            ITF Taekwon-Do App V3.17
+            Taekwon-Do Companion V3.20
           </Animated.Text>
           <Animated.Text
             style={styles.description}

@@ -19,7 +19,7 @@ const Page = (props: Props) => {
       <View style={{ alignItems: 'center' }}>
         <Text style={styles.title}>Acerca De</Text>
         <Text style={styles.textarea}>
-          ITF Taekwon-Do App{"\n"}Version 3.17
+          Taekwon-Do Companion{"\n"}Version 3.20
         </Text>
         <Image source={require('@/assets/images/LargeIcon.png')} style={styles.centerImg} />
         <Text style={styles.textarea}>Copyright 2024{"\n"}Boo Sabum Gastón R. Valdés</Text>
