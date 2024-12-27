@@ -1,15 +1,17 @@
 import { ImageBackground, StyleSheet, Text, TouchableOpacity, View, Linking } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
+import { useTranslation } from "react-i18next";
 import { Colors } from "@/constants/Colors";
 import Animated, { FadeIn, FadeInDown, FadeInRight } from "react-native-reanimated";
 import { StatusBar } from "react-native";
 
 const Page = () => {
   const router = useRouter();
+  const { t } = useTranslation();
 
   const handleEmailPress = () => {
-    Linking.openURL("mailto:gastonvaldes@gmail.com");
+    Linking.openURL(`mailto:${t('email')}`);
   };
 
   return (
@@ -25,21 +27,22 @@ const Page = () => {
             style={styles.title}
             entering={FadeInRight.delay(300).duration(500)}
           >
-            Taekwon-Do Companion V3.20
+            {t('appTitle')}{"\n"}
+            {t('version')}
           </Animated.Text>
           <Animated.Text
             style={styles.description}
             entering={FadeInRight.delay(700).duration(500)}
           >
-            Su complemento ideal fuera del Dojang
+            {t('subtitle')}
           </Animated.Text>
           <Animated.Text
             style={styles.description}
             entering={FadeInRight.delay(700).duration(500)}
           >
-            Creada por: Gastón Valdés{"\n"}
+            {t('createdBy')}{"\n"}
             <Text style={styles.link} onPress={handleEmailPress}>
-              gastonvaldes@gmail.com
+              {t('email')}
             </Text>
           </Animated.Text>
           <Animated.View entering={FadeInDown.delay(1200).duration(500)}>
@@ -47,7 +50,7 @@ const Page = () => {
               style={styles.btn}
               onPress={() => router.replace("/(tabs)")}
             >
-              <Text style={styles.btnText}>Iniciar</Text>
+              <Text style={styles.btnText}>{t('start')}</Text>
             </TouchableOpacity>
           </Animated.View>
         </View>

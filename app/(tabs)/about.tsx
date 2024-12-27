@@ -1,33 +1,36 @@
 import { StyleSheet, Text, View, Image, Linking, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 import Header from '@/components/Header';
 import { Colors } from '@/constants/Colors';
 
 type Props = {};
 
 const Page = (props: Props) => {
+  const { t } = useTranslation();
   const { top: safeTop } = useSafeAreaInsets();
 
   const handleEmailPress = () => {
-    Linking.openURL('mailto:gastonvaldes@gmail.com');
+    Linking.openURL(`mailto:${t('email')}`);
   };
 
   return (
     <View style={[styles.container, { paddingTop: safeTop }]}>
       <Header />
       <View style={{ alignItems: 'center' }}>
-        <Text style={styles.title}>Acerca De</Text>
+        <Text style={styles.title}>{t('aboutTitle')}</Text>
         <Text style={styles.textarea}>
-          Taekwon-Do Companion{"\n"}Version 3.20
+          {t('appTitle')}{'\n'}{t('version')}
         </Text>
         <Image source={require('@/assets/images/LargeIcon.png')} style={styles.centerImg} />
-        <Text style={styles.textarea}>Copyright 2024{"\n"}Boo Sabum Gastón R. Valdés</Text>
-        <Text>2do DAN Internacional Taekwon-do ITF</Text>
+        <Text style={styles.textarea}>
+          {t('copyright')}{'\n'}{t('danTitle')}
+        </Text>
         <TouchableOpacity onPress={handleEmailPress}>
-          <Text style={styles.link}>gastonvaldes@gmail.com</Text>
+          <Text style={styles.link}>{t('email')}</Text>
         </TouchableOpacity>
-        <Text style={styles.aboutText}>Cree esta aplicación para compartir el conocimiento que adquirí a lo largo de 15 años entrenando Taekwondo-ITF.{"\n"} Esta Aplicacion no tiene afiliacion con la International Taekwon-Do Federation.{"\n"}Su contenido refleja las enseñanzas del estilo de Taekwon-Do ITF desarrollado por el General Choi Hong Hi y documentado en la Enciclopedia de Taekwon-Do</Text>
+        <Text style={styles.aboutText}>{t('aboutText')}</Text>
       </View>
     </View>
   );

@@ -13,7 +13,7 @@ const resources = {
   en: {
     translation: {
       // Landing page
-      appTitle: 'ITF Taekwon-Do App V3.17',
+      appTitle: 'ITF Taekwon-Do',
       subtitle: 'Your ideal companion outside the Dojang',
       createdBy: 'Created by: Gastón Valdés',
       start: 'Start',
@@ -30,9 +30,9 @@ const resources = {
       
       // About page
       aboutTitle: 'About',
-      version: 'Version 3.17',
+      version: 'Version 3.20',
       copyright: 'Copyright 2024',
-      danTitle: '2nd DAN International Taekwon-do ITF',
+      danTitle: '2nd Degre Black Belt Taekwon-do ITF',
       aboutText: 'I created this application to share the knowledge I acquired over 15 years of training in Taekwondo-ITF. This Application has no affiliation with the International Taekwon-Do Federation. Its content reflects the teachings of the ITF Taekwon-Do style developed by General Choi Hong Hi and documented in the Taekwon-Do Encyclopedia',
       
       // Listings page
@@ -68,7 +68,7 @@ const resources = {
   es: {
     translation: {
       // Landing page
-      appTitle: 'ITF Taekwon-Do App V3.17',
+      appTitle: 'ITF Taekwon-Do App V3.20',
       subtitle: 'Su complemento ideal fuera del Dojang',
       createdBy: 'Creada por: Gastón Valdés',
       start: 'Iniciar',
