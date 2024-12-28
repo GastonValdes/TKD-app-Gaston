@@ -3358,6 +3358,7 @@ export const enContent: ListingTranslationType[] = [
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
+        "videos": ["youtube:gZvn0B4JSLg"],
         "category": "Formas"
     },
     {
@@ -3568,6 +3569,7 @@ export const enContent: ListingTranslationType[] = [
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
+        "videos": ["youtube:MUBLmf0_fvY"],
         "category": "Formas"
     },
     {
@@ -3778,6 +3780,7 @@ export const enContent: ListingTranslationType[] = [
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
+        "videos": ["youtube:mqvr2EzSShg"],
         "category": "Formas"
     },
     {
@@ -3988,6 +3991,7 @@ export const enContent: ListingTranslationType[] = [
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
+        "videos": ["youtube:iPDis88FOtY"],
         "category": "Formas"
     },
     {
@@ -4198,6 +4202,7 @@ export const enContent: ListingTranslationType[] = [
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
+        "videos": ["youtube:ulW93_Ndiyo"],
         "category": "Formas"
     },
     {
@@ -4408,6 +4413,7 @@ export const enContent: ListingTranslationType[] = [
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
+        "videos": ["youtube:lXd5Dj9VLUo"],
         "category": "Formas"
     },
     {
@@ -4618,6 +4624,7 @@ export const enContent: ListingTranslationType[] = [
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
+        "videos": ["youtube:OPwGoJ5mrk"],
         "category": "Formas"
     },
     {
@@ -4828,6 +4835,7 @@ export const enContent: ListingTranslationType[] = [
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
+        "videos": ["youtube:H6TNOcd2TDw"],
         "category": "Formas"
     },
     {
@@ -5038,6 +5046,7 @@ export const enContent: ListingTranslationType[] = [
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
+        "videos": ["youtube:X5V7rGCkk4k"],
         "category": "Formas"
     },
     {
@@ -5248,6 +5257,7 @@ export const enContent: ListingTranslationType[] = [
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
+        "videos": ["youtube:jn5EGulw4-U"],
         "category": "Formas"
     },
     {
@@ -5458,6 +5468,7 @@ export const enContent: ListingTranslationType[] = [
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
+        "videos": ["youtube:MJdTfulpW1s"],
         "category": "Formas"
     },
     {
@@ -5668,6 +5679,7 @@ export const enContent: ListingTranslationType[] = [
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
+        "videos": ["youtube:Zb7IozhES2o"],
         "category": "Formas"
     },
     {
@@ -5878,6 +5890,7 @@ export const enContent: ListingTranslationType[] = [
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
+        "videos": ["youtube:inMKh0lC_KI"],
         "category": "Formas"
     },
     {
@@ -6088,6 +6101,7 @@ export const enContent: ListingTranslationType[] = [
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
+        "videos": ["youtube:cWZL2LErGTg"],
         "category": "Formas"
     },
     {
@@ -6298,6 +6312,7 @@ export const enContent: ListingTranslationType[] = [
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
+        "videos": ["youtube:3MGKMHMzlUA"],
         "category": "Formas"
     },
 
@@ -6509,7 +6524,7 @@ export const enContent: ListingTranslationType[] = [
         "imageth40a":"",
         "imageth40b":"",
         "imageth40c":"",
-        "videos": ["video1.mp4"],
+        "videos": ["youtube:Lp6WKSeqYC4"],
         "category": "Teoria"
     },
     {

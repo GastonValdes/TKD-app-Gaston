@@ -18,6 +18,8 @@ import Animated, {
 } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
 import { useTranslatedContent } from '@/hooks/useTranslatedContent';
+import VideoPlayer from "@/components/VideoPlayer";
+import { WebView } from 'react-native-webview';
 
 const { width, height } = Dimensions.get('window');
     
@@ -108,15 +110,28 @@ const ListingDetails = () => {
         setIsVideo(false);
         setIsModalVisible(true);
     };
+    const [selectedVideoId, setSelectedVideoId] = useState<string>('');
 
-    const handleMediaPress = (mediaSource: any, fileName: string) => {
-        scale.value = 1;
-        translateX.value = 0;
-        translateY.value = 0;
+
+const handleMediaPress = (mediaSource: any, fileName: string) => {
+    scale.value = 1;
+    translateX.value = 0;
+    translateY.value = 0;
+    
+    // Handle YouTube videos
+    const isYouTube = fileName.startsWith('youtube:');
+    if (isYouTube) {
+        const youtubeId = fileName.split(':')[1];
+        setSelectedVideoId(youtubeId);
+        setSelectedMedia(null); // Set to null for YouTube videos
+    } else {
         setSelectedMedia(mediaSource);
-        setIsVideo(isVideoFile(fileName));
-        setIsModalVisible(true);
-    };
+        setSelectedVideoId('');
+    }
+    
+    setIsVideo(isYouTube || isVideoFile(fileName));
+    setIsModalVisible(true);
+};
 
     const isVideoFile = (fileName: string) => {
         return fileName.toLowerCase().endsWith('.mp4') || 
@@ -195,24 +210,32 @@ const ListingDetails = () => {
                     contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
                 >
                     {listing.videos.map((videoName, index) => {
-                        const videoSource = imageMapping[videoName];
-                        if (!videoSource) return null;
-
+                        const isYouTube = videoName.startsWith('youtube:');
+                        const youtubeId = isYouTube ? videoName.split(':')[1] : '';
+                        const videoSource = isYouTube ? null : imageMapping[videoName];
+    
                         return (
                             <TouchableOpacity 
                                 key={index}
                                 onPress={() => handleMediaPress(videoSource, videoName)}
                             >
                                 <View style={styles.videoContainer}>
-                                    <Video
-                                        source={videoSource}
-                                        style={styles.videoThumbnail}
-                                        resizeMode={ResizeMode.COVER}
-                                        shouldPlay={false}
-                                        isMuted={true}
-                                        useNativeControls={false}
-                                        isLooping={false}
-                                    />
+                                    {isYouTube ? (
+                                        <Image
+                                            source={{ uri: `https://img.youtube.com/vi/${youtubeId}/0.jpg` }}
+                                            style={styles.videoThumbnail}
+                                        />
+                                    ) : (
+                                        <Video
+                                            source={videoSource}
+                                            style={styles.videoThumbnail}
+                                            resizeMode={ResizeMode.COVER}
+                                            shouldPlay={false}
+                                            isMuted={true}
+                                            useNativeControls={false}
+                                            isLooping={false}
+                                        />
+                                    )}
                                     <View style={styles.playButtonOverlay}>
                                         <Ionicons name="play-circle" size={30} color="white" />
                                     </View>
@@ -469,13 +492,26 @@ const ListingDetails = () => {
             </TouchableOpacity>
             
             {isVideo ? (
-                <FullscreenVideoPlayer
-                    source={selectedMedia}
-                    isVisible={isModalVisible}
-                    onClose={() => {
-                        setIsModalVisible(false);
-                    }}
-                />
+                selectedVideoId ? (
+                    <WebView
+                        style={{
+                            width: width * 0.9,
+                            height: height * 0.4,
+                        }}
+                        source={{
+                            uri: `https://www.youtube.com/embed/${selectedVideoId}?playsinline=1&autoplay=1`
+                        }}
+                        allowsFullscreenVideo={true}
+                    />
+                ) : (
+                    <FullscreenVideoPlayer
+                        source={selectedMedia}
+                        isVisible={isModalVisible}
+                        onClose={() => {
+                            setIsModalVisible(false);
+                        }}
+                    />
+                )
             ) : (
                 <GestureDetector gesture={composed}>
                     <Animated.View style={[styles.modalBackground]}>
