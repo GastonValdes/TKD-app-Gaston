@@ -30,7 +30,7 @@ const resources = {
       
       // About page
       aboutTitle: 'About',
-      version: 'Version 3.20',
+      version: 'Version 3.22',
       copyright: 'Copyright 2024',
       danTitle: '2nd Degree Black Belt Taekwon-do ITF',
       aboutText: 'I created this application to share the knowledge I acquired over 15 years of training in Taekwondo-ITF. This Application has no affiliation with the International Taekwon-Do Federation. Its content reflects the teachings of the ITF Taekwon-Do style developed by General Choi Hong Hi and documented in the Taekwon-Do Encyclopedia',
