@@ -20,7 +20,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.gvaldes79.gastontaekwondo"
+      "package": "com.gvaldes79.gastontaekwondo",
+      "versionCode": 1
     },
     "web": {
       "bundler": "metro",

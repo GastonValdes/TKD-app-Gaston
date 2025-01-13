@@ -84,7 +84,7 @@ const resources = {
       
       // About page
       aboutTitle: 'Acerca De',
-      version: 'Versión 3.20',
+      version: 'Versión 3.22',
       copyright: 'Copyright 2024',
       danTitle: '2do DAN Internacional Taekwon-do ITF',
       aboutText: 'Cree esta aplicación para compartir el conocimiento que adquirí a lo largo de 15 años entrenando Taekwondo-ITF. Esta Aplicacion no tiene afiliacion con la International Taekwon-Do Federation. Su contenido refleja las enseñanzas del estilo de Taekwon-Do ITF desarrollado por el General Choi Hong Hi y documentado en la Enciclopedia de Taekwon-Do',
