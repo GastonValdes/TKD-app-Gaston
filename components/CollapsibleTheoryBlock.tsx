@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, LayoutAnimation, Platform, UIManager } from 'react-native';
+import { View, Text, TouchableOpacity, LayoutAnimation, Platform, UIManager } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
+import TerminologyTable from './TerminologyTable';
 
 // Enable LayoutAnimation for Android
 if (Platform.OS === 'android') {
@@ -10,15 +11,9 @@ if (Platform.OS === 'android') {
   }
 }
 
-interface CollapsibleTheoryBlockProps {
-  title?: string;
-  theory?: string;
-  children?: React.ReactNode;
-}
-
-const CollapsibleTheoryBlock = ({ title, theory, children }: CollapsibleTheoryBlockProps) => {
+const CollapsibleTheoryBlock = ({ title, theory, children }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
-  const [fontSize, setFontSize] = useState(16); // Default font size
+  const [fontSize, setFontSize] = useState(16);
 
   const toggleCollapse = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
@@ -26,20 +21,27 @@ const CollapsibleTheoryBlock = ({ title, theory, children }: CollapsibleTheoryBl
   };
 
   const increaseFontSize = () => {
-    if (fontSize < 24) { // Maximum font size
+    if (fontSize < 24) {
       setFontSize(prevSize => prevSize + 2);
     }
   };
 
   const decreaseFontSize = () => {
-    if (fontSize > 12) { // Minimum font size
+    if (fontSize > 12) {
       setFontSize(prevSize => prevSize - 2);
     }
   };
 
   const resetFontSize = () => {
-    setFontSize(16); // Reset to default size
+    setFontSize(16);
   };
+
+  // Check if the theory content should be rendered as a table
+  const shouldRenderTable = theory && (
+    theory.includes('\t') || 
+    theory.toLowerCase().includes('korean') ||
+    theory.toLowerCase().includes('english')
+  );
 
   return (
     <View style={styles.container}>
@@ -60,42 +62,48 @@ const CollapsibleTheoryBlock = ({ title, theory, children }: CollapsibleTheoryBl
         <View style={styles.contentContainer}>
           {theory && (
             <View style={styles.theoryContainer}>
-              <Text style={[styles.theory, { fontSize }]}>{theory}</Text>
+              {shouldRenderTable ? (
+                <TerminologyTable data={theory} />
+              ) : (
+                <Text style={[styles.theory, { fontSize }]}>{theory}</Text>
+              )}
             </View>
           )}
           {children}
           
-          <View style={styles.fontSizeControls}>
-            <TouchableOpacity 
-              onPress={decreaseFontSize}
-              style={[styles.fontButton, fontSize <= 12 && styles.disabledButton]}
-              disabled={fontSize <= 12}
-            >
-              <Ionicons name="remove" size={24} color={fontSize <= 12 ? Colors.lightGrey : Colors.primaryColor} />
-            </TouchableOpacity>
-            
-            <TouchableOpacity 
-              onPress={resetFontSize}
-              style={styles.fontButton}
-            >
-              <Ionicons name="refresh" size={24} color={Colors.primaryColor} />
-            </TouchableOpacity>
-            
-            <TouchableOpacity 
-              onPress={increaseFontSize}
-              style={[styles.fontButton, fontSize >= 24 && styles.disabledButton]}
-              disabled={fontSize >= 24}
-            >
-              <Ionicons name="add" size={24} color={fontSize >= 24 ? Colors.lightGrey : Colors.primaryColor} />
-            </TouchableOpacity>
-          </View>
+          {!shouldRenderTable && (
+            <View style={styles.fontSizeControls}>
+              <TouchableOpacity 
+                onPress={decreaseFontSize}
+                style={[styles.fontButton, fontSize <= 12 && styles.disabledButton]}
+                disabled={fontSize <= 12}
+              >
+                <Ionicons name="remove" size={24} color={fontSize <= 12 ? Colors.lightGrey : Colors.primaryColor} />
+              </TouchableOpacity>
+              
+              <TouchableOpacity 
+                onPress={resetFontSize}
+                style={styles.fontButton}
+              >
+                <Ionicons name="refresh" size={24} color={Colors.primaryColor} />
+              </TouchableOpacity>
+              
+              <TouchableOpacity 
+                onPress={increaseFontSize}
+                style={[styles.fontButton, fontSize >= 24 && styles.disabledButton]}
+                disabled={fontSize >= 24}
+              >
+                <Ionicons name="add" size={24} color={fontSize >= 24 ? Colors.lightGrey : Colors.primaryColor} />
+              </TouchableOpacity>
+            </View>
+          )}
         </View>
       )}
     </View>
   );
 };
 
-const styles = StyleSheet.create({
+const styles = {
   container: {
     backgroundColor: Colors.white,
     position: 'relative',
@@ -157,6 +165,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0,
     elevation: 0,
   }
-});
+};
 
 export default CollapsibleTheoryBlock;
