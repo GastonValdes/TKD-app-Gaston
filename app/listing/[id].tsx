@@ -75,6 +75,7 @@ const imageMapping: Record<string, any> = {
     "carta.jpg": require("@/assets/images/carta.jpg"),
     "moral3.png": require("@/assets/images/moral3.png"),
     "culturamoral.png": require("@/assets/images/culturamoral.png"),
+    "Terminology.png": require("@/assets/images/Terminology.png"),
     
     // ... rest of your image mappings
 };

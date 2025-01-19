@@ -6950,7 +6950,7 @@ export const esContent: ListingTranslationType[] = [
     {
         "id": "35",
         "name": "Terminología",
-        "image": "",
+        "image": "Terminology.png",
         "description": "Termininología Coreana utilizada en Taekwon-Do",
         "section1":"",
         "titletheory1":"Ordinales 서수 숫자",
