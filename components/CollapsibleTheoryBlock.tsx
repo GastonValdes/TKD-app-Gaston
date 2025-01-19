@@ -36,7 +36,7 @@ const CollapsibleTheoryBlock = ({ title, theory, children }) => {
     setFontSize(16);
   };
 
-  // Check if the theory content should be rendered as a table
+  // Check if content should be rendered as a table
   const shouldRenderTable = theory && (
     theory.includes('\t') || 
     theory.toLowerCase().includes('korean') ||
@@ -63,7 +63,7 @@ const CollapsibleTheoryBlock = ({ title, theory, children }) => {
           {theory && (
             <View style={styles.theoryContainer}>
               {shouldRenderTable ? (
-                <TerminologyTable data={theory} />
+                <TerminologyTable data={theory} fontSize={fontSize} />
               ) : (
                 <Text style={[styles.theory, { fontSize }]}>{theory}</Text>
               )}
@@ -71,32 +71,30 @@ const CollapsibleTheoryBlock = ({ title, theory, children }) => {
           )}
           {children}
           
-          {!shouldRenderTable && (
-            <View style={styles.fontSizeControls}>
-              <TouchableOpacity 
-                onPress={decreaseFontSize}
-                style={[styles.fontButton, fontSize <= 12 && styles.disabledButton]}
-                disabled={fontSize <= 12}
-              >
-                <Ionicons name="remove" size={24} color={fontSize <= 12 ? Colors.lightGrey : Colors.primaryColor} />
-              </TouchableOpacity>
-              
-              <TouchableOpacity 
-                onPress={resetFontSize}
-                style={styles.fontButton}
-              >
-                <Ionicons name="refresh" size={24} color={Colors.primaryColor} />
-              </TouchableOpacity>
-              
-              <TouchableOpacity 
-                onPress={increaseFontSize}
-                style={[styles.fontButton, fontSize >= 24 && styles.disabledButton]}
-                disabled={fontSize >= 24}
-              >
-                <Ionicons name="add" size={24} color={fontSize >= 24 ? Colors.lightGrey : Colors.primaryColor} />
-              </TouchableOpacity>
-            </View>
-          )}
+          <View style={styles.fontSizeControls}>
+            <TouchableOpacity 
+              onPress={decreaseFontSize}
+              style={[styles.fontButton, fontSize <= 12 && styles.disabledButton]}
+              disabled={fontSize <= 12}
+            >
+              <Ionicons name="remove" size={24} color={fontSize <= 12 ? Colors.lightGrey : Colors.primaryColor} />
+            </TouchableOpacity>
+            
+            <TouchableOpacity 
+              onPress={resetFontSize}
+              style={styles.fontButton}
+            >
+              <Ionicons name="refresh" size={24} color={Colors.primaryColor} />
+            </TouchableOpacity>
+            
+            <TouchableOpacity 
+              onPress={increaseFontSize}
+              style={[styles.fontButton, fontSize >= 24 && styles.disabledButton]}
+              disabled={fontSize >= 24}
+            >
+              <Ionicons name="add" size={24} color={fontSize >= 24 ? Colors.lightGrey : Colors.primaryColor} />
+            </TouchableOpacity>
+          </View>
         </View>
       )}
     </View>

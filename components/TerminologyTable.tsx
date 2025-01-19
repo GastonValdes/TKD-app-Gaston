@@ -1,30 +1,30 @@
 import React, { useMemo } from 'react';
-import { View, Text, ScrollView, Dimensions } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { Colors } from "@/constants/Colors";
 
-const TerminologyTable = ({ data }) => {
+const TerminologyTable = ({ data, fontSize = 16 }) => {
   // Split the data into rows based on newlines
   const rows = data.split('\n').filter(row => row.trim());
   
   // Split each row into columns based on tabs
   const tableData = rows.map(row => row.split('\t').map(cell => cell.trim()));
 
-  // Calculate column widths based on content
+  // Calculate column widths based on content and fontSize
   const columnWidths = useMemo(() => {
     const numColumns = Math.max(...tableData.map(row => row.length));
     const widths = new Array(numColumns).fill(0);
+    const fontSizeMultiplier = fontSize / 16; // Scale based on fontSize
 
-    // Calculate minimum width needed for each column
     tableData.forEach(row => {
       row.forEach((cell, index) => {
-        // Estimate width based on character count (adjust multiplier as needed)
-        const estimatedWidth = Math.min(300, Math.max(100, cell.length * 10));
+        // Adjust width calculation based on fontSize
+        const estimatedWidth = Math.min(400, Math.max(120, cell.length * 10 * fontSizeMultiplier));
         widths[index] = Math.max(widths[index], estimatedWidth);
       });
     });
 
     return widths;
-  }, [tableData]);
+  }, [tableData, fontSize]);
 
   return (
     <ScrollView 
@@ -48,7 +48,8 @@ const TerminologyTable = ({ data }) => {
             >
               <Text style={{ 
                 fontWeight: 'bold',
-                flexWrap: 'wrap'
+                flexWrap: 'wrap',
+                fontSize: fontSize
               }}>
                 {header}
               </Text>
@@ -75,12 +76,15 @@ const TerminologyTable = ({ data }) => {
                   padding: 8,
                 }}
               >
-                <Text style={{ flexWrap: 'wrap' }}>
+                <Text style={{ 
+                  flexWrap: 'wrap',
+                  fontSize: fontSize
+                }}>
                   {cell}
                 </Text>
               </View>
             ))}
-            {/* Fill in any missing cells with empty cells to maintain alignment */}
+            {/* Fill in any missing cells */}
             {[...Array(tableData[0].length - row.length)].map((_, index) => (
               <View 
                 key={`empty-${index}`}
