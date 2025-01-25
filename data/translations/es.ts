@@ -6,7 +6,7 @@ export const esContent: ListingTranslationType[] = [
         "image": "blanco.png",
         "description": "Requisitos para examen de cinturon blanco (10 Gup)",
         "titletheory1":"Requisitos para examen",
-        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos:\n• SAJU CHIRUGY 사주 치루기 (Puño en 4 Direcciones) \n• SAJU MAKGI 사주 막기 (Bloqueo en 4 Direcciones) \n\n\n Para mayor informacion sobre estas técnicas revise la sección Formas",
+        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos:\n• SAJU CHIRUGY 사주 치루기 (Puño en 4 Direcciones) \n• SAJU MAKGI 사주 막기 (Bloqueo en 4 Direcciones) \n\n\n Para mayor información sobre estas técnicas revise la sección Formas",
         "category": "Examen" 
     },
     {
@@ -15,7 +15,7 @@ export const esContent: ListingTranslationType[] = [
         "image": "punta-amarilla.png",
         "description": "Requisitos para examen decinturon punta amarilla (9 Gup)",
         "titletheory1":"Requisitos para examen",
-        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos:\n• SAJU MAKGI 사주 막기 (Bloqueo en 4 Direcciones) \n• CHON-JI 천지\n• SAMBO MATSOGI 삼보 맛소기 (Combate a 3 Pasos) SOLO \n\n\n Para mayor informacion sobre estas técnicas revise las secciones Formas y Teoría.",
+        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos:\n• SAJU MAKGI 사주 막기 (Bloqueo en 4 Direcciones) \n• CHON-JI 천지\n• SAMBO MATSOGI 삼보 맛소기 (Combate a 3 Pasos) SOLO \n\n\n Para mayor información sobre estas técnicas revise las secciones Formas y Teoría.",
         "category": "Examen"
     },
     {
@@ -24,7 +24,7 @@ export const esContent: ListingTranslationType[] = [
         "image": "amarillo.png",
         "description": "Requisitos para examen decinturon amarillo (8 Gup)",
         "titletheory1":"Requisitos para examen",
-        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos:\n• CHON-JI 천지\n• DAN-GUN 단군 \n\n\n Para mayor informacion sobre estas técnicas revise la sección Formas.",
+        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos:\n• CHON-JI 천지\n• DAN-GUN 단군 \n\n\n Para mayor información sobre estas técnicas revise la sección Formas.",
         "category": "Examen" 
     },
     {
@@ -33,7 +33,7 @@ export const esContent: ListingTranslationType[] = [
         "image": "punta-verde.png",
         "description": "Requisitos para examen decinturon punta verde (7 Gup)",
         "titletheory1":"equisitos para examen",
-        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos:\n• DAN-GUN 단군 \n• DO-SAN 도산 \n• SAMBO MATSOGI 삼보 맛소기 (Combate a 3 Pasos) \n• IBO MATSOGI 이보 맛소기 (Combate a 2 pasos) \n\n\n Para mayor informacion sobre estas técnicas revise las secciones Formas y Teoría.",
+        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos:\n• DAN-GUN 단군 \n• DO-SAN 도산 \n• SAMBO MATSOGI 삼보 맛소기 (Combate a 3 Pasos) \n• IBO MATSOGI 이보 맛소기 (Combate a 2 pasos) \n\n\n Para mayor información sobre estas técnicas revise las secciones Formas y Teoría.",
         "category": "Examen"
     },
     {
@@ -42,7 +42,7 @@ export const esContent: ListingTranslationType[] = [
         "image": "verde.png",
         "description": "Requisitos para examen decinturon verde (6 Gup)",
         "titletheory1":"Requisitos para examen",
-        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos: \n• DO-SAN 도산  \n• WON-HYO 원효 \n• SAMBO MATSOGI 삼보 맛소기 (Combate a 3 Pasos) \n• IBO MATSOGI 이보 맛소기 (Combate a 2 pasos) \n\n\n Para mayor informacion sobre estas técnicas revise las secciones Formas y Teoría.",
+        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos: \n• DO-SAN 도산  \n• WON-HYO 원효 \n• SAMBO MATSOGI 삼보 맛소기 (Combate a 3 Pasos) \n• IBO MATSOGI 이보 맛소기 (Combate a 2 pasos) \n\n\n Para mayor información sobre estas técnicas revise las secciones Formas y Teoría.",
         "category": "Examen"
     },
     {
@@ -51,7 +51,7 @@ export const esContent: ListingTranslationType[] = [
         "image": "punta-azul.png",
         "description": "Requisitos para examen decinturon Punta azul (5 Gup)",
         "titletheory1":"Requisitos para examen",
-        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos: \n• WON-HYO 원효 \n• YUL-GOK 율곡 \n• IBO MATSOGI 이보 맛소기 (Combate a 2 pasos) \n• ILBO MATSOGI 일보맛소기 (Combate a un paso) \n• Rotura (gyeokpa 격파) con patada frontal (Ap Chagui 압 차귀) \n\n\n Para mayor informacion sobre estas técnicas revise las secciones Formas y Teoría.",
+        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos: \n• WON-HYO 원효 \n• YUL-GOK 율곡 \n• IBO MATSOGI 이보 맛소기 (Combate a 2 pasos) \n• ILBO MATSOGI 일보맛소기 (Combate a un paso) \n• Rotura (gyeokpa 격파) con patada frontal (Ap Chagui 압 차귀) \n\n\n Para mayor información sobre estas técnicas revise las secciones Formas y Teoría.",
         "category": "Examen"
     },
     {
@@ -60,7 +60,7 @@ export const esContent: ListingTranslationType[] = [
         "image": "azul.png",
         "description": "Requisitos para examen decinturon azul (4 Gup)",
         "titletheory1":"Requisitos para examen",
-        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos:\n• YUL-GOK 율곡  \n• JOONG-GUN 중건 \n• ILBO MATSOGI 일보맛소기 (Combate a un paso) \n• BAN JAYU MATSOGI 반 자유 마초기 (Combate semi libre) \n• Rotura (gyeokpa 격파) con patada lateral (Yop Chagui 요프 차귀) \n\n\n Para mayor informacion sobre estas técnicas revise las secciones Formas y Teoría.",
+        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos:\n• YUL-GOK 율곡  \n• JOONG-GUN 중건 \n• ILBO MATSOGI 일보맛소기 (Combate a un paso) \n• BAN JAYU MATSOGI 반 자유 마초기 (Combate semi libre) \n• Rotura (gyeokpa 격파) con patada lateral (Yop Chagui 요프 차귀) \n\n\n Para mayor información sobre estas técnicas revise las secciones Formas y Teoría.",
         "category": "Examen"
     },
     {
@@ -69,7 +69,7 @@ export const esContent: ListingTranslationType[] = [
         "image": "punta-roja.png",
         "description": "Requisitos para examen decinturon punta roja (3 Gup)",
         "titletheory1":"Requisitos para examen",
-        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos: \n• JOONG-GUN 중건 \n• TOI GYE 토이 계 \n• BAN JAYU MATSOGI 반 자유 마초기 (Combate semi libre) \n• JAYU MATSOGI 자유 맛소기 (Combate libre) \n• Rotura (gyeokpa 격파) con patada lateral (Yop Chagui 요프 차귀) \n• Rotura (gyeokpa 격파) con puño frontal (Ap Joomuk 압 주무크) \n\n\n Para mayor informacion sobre estas técnicas revise las secciones Formas y Teoría.",
+        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos: \n• JOONG-GUN 중건 \n• TOI GYE 토이 계 \n• BAN JAYU MATSOGI 반 자유 마초기 (Combate semi libre) \n• JAYU MATSOGI 자유 맛소기 (Combate libre) \n• Rotura (gyeokpa 격파) con patada lateral (Yop Chagui 요프 차귀) \n• Rotura (gyeokpa 격파) con puño frontal (Ap Joomuk 압 주무크) \n\n\n Para mayor información sobre estas técnicas revise las secciones Formas y Teoría.",
         "category": "Examen"
     },
     {
@@ -78,7 +78,7 @@ export const esContent: ListingTranslationType[] = [
         "image": "rojo.png",
         "description": "Requisitos para examen decinturon rojo (2 Gup)",
         "titletheory1":"Requisitos para examen",
-        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos: \n• TOI GYE 토이 계 \n• HWA RANG 화랑 \n• JAYU MATSOGI 자유 맛소기 (Combate libre) \n• ILBO MATSOGI 일보맛소기 (Combate a un paso) \n• Rotura (gyeokpa 격파) con patada lateral saltando (Twimyo Yop Chagui 트위묘 욥 차귀) \n• Rotura (gyeokpa 격파) con reverso del puño (Dung Joomuk 둥 주묵) \n\n\n Para mayor informacion sobre estas técnicas revise las secciones Formas y Teoría.",
+        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos: \n• TOI GYE 토이 계 \n• HWA RANG 화랑 \n• JAYU MATSOGI 자유 맛소기 (Combate libre) \n• ILBO MATSOGI 일보맛소기 (Combate a un paso) \n• Rotura (gyeokpa 격파) con patada lateral saltando (Twimyo Yop Chagui 트위묘 욥 차귀) \n• Rotura (gyeokpa 격파) con reverso del puño (Dung Joomuk 둥 주묵) \n\n\n Para mayor información sobre estas técnicas revise las secciones Formas y Teoría.",
         "category": "Examen"
     },
     {
@@ -87,7 +87,7 @@ export const esContent: ListingTranslationType[] = [
         "image": "punta-negra.png",
         "description": "Requisitos para examen decinturon punta negra (1 Gup)",
         "titletheory1":"Requisitos para examen",
-        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos: \n• HWA RANG 화랑 \n• CHOONG-MOO 충무 \n• JAYU MATSOGI 자유 맛소기 (Combate libre) \n• Hoo Sin Sool 호신술 (Defensa Personal) \n• Rotura (gyeokpa 격파) con patada circular (Dollyo Chagui 돌리오 차귀) \n• Rotura (gyeokpa 격파) con giro de talón (Bandae Dollyo Chagui 반다에 돌리오 차귀) \n\n\n Para mayor informacion sobre estas técnicas revise las secciones Formas y Teoría.",
+        "theory1": "La enciclopedia de Taekwon-Do identifica para los examenes (simsa 심사) en el volumen 1, página 94 los siguientes requisitos: \n• HWA RANG 화랑 \n• CHOONG-MOO 충무 \n• JAYU MATSOGI 자유 맛소기 (Combate libre) \n• Hoo Sin Sool 호신술 (Defensa Personal) \n• Rotura (gyeokpa 격파) con patada circular (Dollyo Chagui 돌리오 차귀) \n• Rotura (gyeokpa 격파) con giro de talón (Bandae Dollyo Chagui 반다에 돌리오 차귀) \n\n\n Para mayor información sobre estas técnicas revise las secciones Formas y Teoría.",
         "category": "Examen"
     },
     {
@@ -2389,7 +2389,7 @@ export const esContent: ListingTranslationType[] = [
         "name": "포은 Po-Eun",
         "image": "1erDAN.png",
         "description": "Forma de Cinturon Negro 1er DAN",
-      "section1":"",
+        "section1":"",
         "titletheory1":"포은 Po-Eun",
         "theory1": "Po-Eun:\nMovimientos 36\n\nEs el seudónimo de un súbdito leal, Chong Mong-Chu (1400), que fue un poeta famoso y cuyo poema `No serviría a un segundo amo aunque me crucificaran cien veces` es conocido por todos los coreanos. También fue un pionero en el campo de la física. El diagrama representa su infalible lealtad al rey y al país hacia el final de la dinastía Koryo.",
         "imageth1a":"",
@@ -4093,7 +4093,7 @@ export const esContent: ListingTranslationType[] = [
         "imageth3b":"",
         "imageth3c":"",
         "titletheory4":"Comandos Basicos para el instructor",
-        "theory4": "Español\tCoreano\tHangul\nAtención\tCharyot\nSaludo\tKying-Ye\nPreparado\tJunbi\nRegresar\tBaro\nEn descanso\tSwiyo\nA su propio ritmo\tKooryong - Opshi\nContando\tKooryongy - Macho\nComenzar\tSi Jak\t시작\nUna vez\tHan Beon\t한번\nDos veces\tDubeon\t두번\nRepetir\tDasi\t다시\nAlto\tGuman\t그만\nRomper filas\tHae San\t해산\nMoverse por pasos\tOmgyo\t옮겨\nGirar\tDolgi\t돌기\nIr hacia adelante\tJilleogagi\t찔러가기\nIr hacia atrás\tDwilogagi\t뒤로가기\nGirar a la izquierda\tJwalo Dola\t좌로 돌아\nGirar a la derecha\tUlo Dola\t우로 돌아\nGirar 180°\tDwilo Dola\t뒤로 돌아\nCambiar lados\tBukkwo\t바꿔\nCambiar Manos\tSon Bukkwo\t손 바꿔\nCambiar pies\tBal Bukkwo\t발 바꿔",
+        "theory4": "Español\tCoreano\tHangul\nAtención\tCharyot\t차렷\nSaludo\tKying-Ye\t경례\nPreparado\tJunbi\t기본준비\nRegresar\tBaro\t바로\nEn descanso\tSwiyo¿t스위요\nA su propio ritmo\tKooryong - Opshi\t구룡 - 옵시\nContando\tKooryongy - Macho\t쿠룡이 - 마초\nComenzar\tSi Jak\t시작\nUna vez\tHan Beon\t한번\nDos veces\tDubeon\t두번\nRepetir\tDasi\t다시\nAlto\tGuman\t그만\nRomper filas\tHae San\t해산\nMoverse por pasos\tOmgyo\t옮겨\nGirar\tDolgi\t돌기\nIr hacia adelante\tJilleogagi\t찔러가기\nIr hacia atrás\tDwilogagi\t뒤로가기\nGirar a la izquierda\tJwalo Dola\t좌로 돌아\nGirar a la derecha\tUlo Dola\t우로 돌아\nGirar 180°\tDwilo Dola\t뒤로 돌아\nCambiar lados\tBukkwo\t바꿔\nCambiar Manos\tSon Bukkwo\t손 바꿔\nCambiar pies\tBal Bukkwo\t발 바꿔",
         "imageth4a":"",
         "imageth4b":"",
         "imageth4c":"",
