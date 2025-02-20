@@ -3,9 +3,18 @@ import { View, Text, ScrollView } from 'react-native';
 import { Colors } from "@/constants/Colors";
 
 const TerminologyTable = ({ data, fontSize = 16 }) => {
-  // Split the data into rows based on newlines
-  const rows = data.split('\n').filter(row => row.trim());
   
+  // Return null if there's no <Table> marker in the text
+  if (!data.includes('<Table>')) {
+    return null;
+  }
+  
+   // Remove the <Table> marker from the content
+   const cleanedData = data.replace(/<Table>/g, '').replace(/\n\s*\n/g, '\n');
+
+  // Split the data into rows based on newlines
+  const rows = cleanedData.split('\n').filter(row => row.trim());
+    
   // Split each row into columns based on tabs
   const tableData = rows.map(row => row.split('\t').map(cell => cell.trim()));
 
