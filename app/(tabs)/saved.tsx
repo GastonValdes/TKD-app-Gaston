@@ -2,28 +2,28 @@ import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, ScrollView
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import { Link, Stack, useRouter, useSegments } from "expo-router";
 import { ListingType } from '@/types/listingTypes';
-//import listingData from "@/data/datacontent.json";
 import { Ionicons } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
 import Header from '@/components/Header';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useTranslation } from 'react-i18next';
+import { useTranslatedContent } from '@/hooks/useTranslatedContent';
 
 const { width } = Dimensions.get('window');
 
-// Image mapping object - same as before
+// Image mapping object
 const imageMapping: Record<string, any> = {
-"blanco.png": require("@/assets/images/blanco.png"),
-        "punta-amarilla.png": require("@/assets/images/punta-amarilla.png"),
-        "amarillo.png": require("@/assets/images/amarillo.png"),
-        "punta-verde.png": require("@/assets/images/punta-verde.png"),
-        "verde.png": require("@/assets/images/verde.png"),
-        "punta-azul.png": require("@/assets/images/punta-azul.png"),
-        "azul.png": require("@/assets/images/azul.png"),
-        "punta-roja.png": require("@/assets/images/punta-roja.png"),
-        "rojo.png": require("@/assets/images/rojo.png"),
-        "punta-negra.png": require("@/assets/images/punta-negra.png"),
-        "shinewavemovement.png": require("@/assets/images/shinewavemovement.png"),
+    "blanco.png": require("@/assets/images/blanco.png"),
+    "punta-amarilla.png": require("@/assets/images/punta-amarilla.png"),
+    "amarillo.png": require("@/assets/images/amarillo.png"),
+    "punta-verde.png": require("@/assets/images/punta-verde.png"),
+    "verde.png": require("@/assets/images/verde.png"),
+    "punta-azul.png": require("@/assets/images/punta-azul.png"),
+    "azul.png": require("@/assets/images/azul.png"),
+    "punta-roja.png": require("@/assets/images/punta-roja.png"),
+    "rojo.png": require("@/assets/images/rojo.png"),
+    "punta-negra.png": require("@/assets/images/punta-negra.png"),
+    "shinewavemovement.png": require("@/assets/images/shinewavemovement.png"),
     "default.png": require("@/assets/images/default.png"),
 };
 
@@ -34,14 +34,21 @@ const BookmarkedListings = () => {
     const router = useRouter();
     const prevSegmentRef = useRef<string | null>(null);
     const { t } = useTranslation();
+    const { content } = useTranslatedContent();
+
     const loadBookmarkedItems = useCallback(async () => {
         try {
             const bookmarkedIds = await AsyncStorage.getItem('bookmark');
+            console.log('Retrieved bookmarked IDs:', bookmarkedIds);
+            
             if (bookmarkedIds) {
                 const ids = JSON.parse(bookmarkedIds);
-                const items = listingData.filter((item: ListingType) => 
+                console.log('Parsed IDs:', ids);
+                
+                const items = content.filter((item: ListingType) => 
                     ids.includes(item.id)
                 );
+                console.log('Filtered bookmarked items:', items);
                 setBookmarkedItems(items);
             } else {
                 setBookmarkedItems([]);
@@ -63,12 +70,12 @@ const BookmarkedListings = () => {
         }
         
         prevSegmentRef.current = currentSegment;
-    }, [segments]);
+    }, [segments, loadBookmarkedItems]);
 
     // Initial load
     useEffect(() => {
         loadBookmarkedItems();
-    }, []);
+    }, [loadBookmarkedItems]);
 
     const getImageSource = (imageName: string) => {
         if (imageName.startsWith('http')) {
@@ -99,23 +106,23 @@ const BookmarkedListings = () => {
     const renderContent = () => {
         if (isLoading && bookmarkedItems.length === 0) {
             return (
-              <View style={styles.emptyContainer}>
-                <Text>{t('loading')}</Text>
-              </View>
+                <View style={styles.emptyContainer}>
+                    <Text>{t('loading')}</Text>
+                </View>
             );
         }
 
         if (!isLoading && bookmarkedItems.length === 0) {
             return (
-              <View style={styles.emptyContainer}>
-                <Ionicons name="bookmark-outline" size={64} color={Colors.primaryColor} />
-                <Text style={styles.emptyText}>{t('noFavorites')}</Text>
-                <Link href="/" asChild>
-                  <TouchableOpacity style={styles.browseButton}>
-                    <Text style={styles.browseButtonText}>{t('exploreContent')}</Text>
-                  </TouchableOpacity>
-                </Link>
-              </View>
+                <View style={styles.emptyContainer}>
+                    <Ionicons name="bookmark-outline" size={64} color={Colors.primaryColor} />
+                    <Text style={styles.emptyText}>{t('noFavorites')}</Text>
+                    <Link href="/" asChild>
+                        <TouchableOpacity style={styles.browseButton}>
+                            <Text style={styles.browseButtonText}>{t('exploreContent')}</Text>
+                        </TouchableOpacity>
+                    </Link>
+                </View>
             );
         }
 

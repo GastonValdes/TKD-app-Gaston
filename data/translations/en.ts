@@ -154,7 +154,7 @@ export const enContent: ListingTranslationType[] = [
         "titletheory2":"Cardrdinals",
         "theory2": "<Table> English\tKorean\tHangul\nOne:\tHana\t하나\nTwo:\tDul\t둘\nThree:\tSet\t셋\nFour:\tNet\t넷\nFive:\tDaseot\t다섯\nSix:\tYeoseot\t여섯\nSeven:\tIlgob\t일곱\nEight:\tYeodeol\t여덟\nNine:\tAhop\t아홉\nTen:\tYeol\t열",
         "titletheory3":"Black Belts",
-        "theory3": "<Table> Grading\tEnglish\tKorean\tHangul\n1-3 DAN\tAssistant Instructor\tBo Sa Bum\t부사범\n4-6 DAN\tInstructor\tSa Bum\t사범\n7-8 DAN\tMaster\tSa Hyum\t사현\n9 DAN\tGrand Master\tSa Seong\t사성\n\tExaminer\tSim Sa Guan\t심사관",
+        "theory3": "<Table> Grading\tEnglish\tKorean\tHangul\n1-3 DAN\tAssistant Instructor\tBo Sabum\t부사범\n4-6 DAN\tInstructor\tSabum\t사범\n7-8 DAN\tMaster\tSahyum\t사현\n9 DAN\tGrand Master\tSaseong\t사성\n\tExaminer\tSim Saguan\t심사관",
         "titletheory4":"Basic Commands for instructors",
         "theory4": "<Table> English\tKorean\tHangul\nAttention\tCharyot\t차렷\nBow\tKying-Ye\t경례\nReady\tJunbi\t기본준비\nReturn\tBaro\t바로\nAt ease\tSwiyo\t스위요\nIn your own pase\tKooryong - Opshi\t구룡 - 옵시\nBy Count\tKooryongy - Macho\t쿠룡이 - 마초\nStart\tSi Jak\t시작\nOnce\tHan Beon\t한번\nTwice\tDubeon\t두번\nTo Repeat\tDasi\t다시\nStop\tGuman\t그만\nDismiss\tHae San\t해산\nMoving in steps\tOmgyo\t옮겨\nTurns\tDolgi\t돌기\nTo go forward\tJilleogagi\t찔러가기\nTo go back\tDwilogagi\t뒤로가기\nTo turn left\tJwalo Dola\t좌로 돌아\nTo turn right\tUlo Dola\t우로 돌아\nTo turn 180°\tDwilo Dola\t뒤로 돌아\nSwitch Sides\tBukkwo\t바꿔\nSwitch hands\tSon Bukkwo\t손 바꿔\nSwitch feet\tBal Bukkwo\t발 바꿔",
         "titletheory5":"Terminology for competition",

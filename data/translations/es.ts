@@ -154,7 +154,7 @@ export const esContent: ListingTranslationType[] = [
         "titletheory2":"Cardrdinales",
         "theory2": "<Table> Español\tCoreano\tHangul\n Uno:\tHana\t하나\n Dos:\tDul\t둘\n Tres:\tSet\t셋\n Cuatro:\tNet\t넷\n Cinco:\tDaseot\t다섯\n Seis:\tYeoseot\t여섯\n Siete:\tIlgob\t일곱\n Ocho:\tYeodeol\t여덟\n Nueve:\tAhop\t아홉\n Diez:\tYeol\t열",
         "titletheory3":"Cinturones Negros",
-        "theory3": "<Table> Graduacion\tEspañol\tCoreano\tHangul\n1-3 DAN\tAyudante de Instructor\tBo Sa Bum\t부사범\n4-6 DAN\tInstructor\tSa Bum\t사범\n7-8 DAN\tMaestro\tSa Hyum\t사현\n9 DAN\tGran Maestro\tSa Seong\t사성\n\tExaminador\tSim Sa Guan\t심사관",
+        "theory3": "<Table> Graduacion\tEspañol\tCoreano\tHangul\n1-3 DAN\tAyudante de Instructor\tBo Sabum\t부사범\n4-6 DAN\tInstructor\tSabum\t사범\n7-8 DAN\tMaestro\tSahyum\t사현\n9 DAN\tGran Maestro\tSaseong\t사성\n\tExaminador\tSim Saguan\t심사관",
         "titletheory4":"Comandos Basicos para el instructor",
         "theory4": "<Table> Español\tCoreano\tHangul\nAtención\tCharyot\t차렷\nSaludo\tKying-Ye\t경례\nPreparado\tJunbi\t기본준비\nRegresar\tBaro\t바로\nEn descanso\tSwiyo¿t스위요\nA su propio ritmo\tKooryong - Opshi\t구룡 - 옵시\nContando\tKooryongy - Macho\t쿠룡이 - 마초\nComenzar\tSi Jak\t시작\nUna vez\tHan Beon\t한번\nDos veces\tDubeon\t두번\nRepetir\tDasi\t다시\nAlto\tGuman\t그만\nRomper filas\tHae San\t해산\nMoverse por pasos\tOmgyo\t옮겨\nGirar\tDolgi\t돌기\nIr hacia adelante\tJilleogagi\t찔러가기\nIr hacia atrás\tDwilogagi\t뒤로가기\nGirar a la izquierda\tJwalo Dola\t좌로 돌아\nGirar a la derecha\tUlo Dola\t우로 돌아\nGirar 180°\tDwilo Dola\t뒤로 돌아\nCambiar lados\tBukkwo\t바꿔\nCambiar Manos\tSon Bukkwo\t손 바꿔\nCambiar pies\tBal Bukkwo\t발 바꿔",
         "titletheory5":"Terminología de competición",
