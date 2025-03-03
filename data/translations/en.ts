@@ -161,6 +161,42 @@ export const enContent: ListingTranslationType[] = [
         "theory5": "<Table> English\tKorean\tHangul\nRed\tHong\t홍\nBlue\tChong\t청\nSeparate (Break)\tHaechyo\t해쳐\nContinue\tGaesok\t계속\n1 x Warning\tJu Ui Hana\t주의 하나\n1 x Foul\tGam Jum Hana\t감점 하나\nTime\tSigan\t시간\nTo stop the clock\tJung-Ji\t정지\nWinner\tSung\t승\nFirst Round\tIl He Jon\t일회전\nSecond Round\tYi He Jon\t이회전\nThird Round\tSam He Jon\t삼회전\nDesqualify\tSil Kyuk\t실격\nIndividual Competition\tGeinJeon\t개인전\nTeam Competition\tDanchejeon\t단체전",
         "category": "Teoria"
     },
+    {
+        "id": "37",
+        "name": "Belt knot",
+        "image": "1erDAN.png",
+        "description": "How to tie the Taekwon-DO ITF belt",
+        "titletheory1":"Tieying the Taekwon-DO ITF belt",
+        "videos": ["youtube:Re6kp5CGlJI&t"],
+        "category": "Teoria"
+    },
+    {
+        "id": "38",
+        "name": "Feet Atack",
+        "image": "1erDAN.png",
+        "description": "Taekwon-DO ITF feet attacks",
+        "section1":"Kicks",
+        "titletheory1":"Side Kick - Yop Chagui 욥 차귀",
+        "videos1": ["youtube:Re6kp5CGlJI&t"],
+        "titletheory2":"Front Kick - Ap Chagui 압 차귀",
+        "videos2": ["youtube:Re6kp5CGlJI&t"],
+        "titletheory3":"Turning Kick - Dollyo Chagui 돌리오 차귀",
+        "videos3": ["youtube:Re6kp5CGlJI&t"],
+        "titletheory4":"Back Kick - Tuit Chagui 투이트 차귀",
+        "videos4": ["youtube:Re6kp5CGlJI&t"],
+        "titletheory5":"Downward Kick - Naeryo Chagui 내려료 차귀",
+        "videos5": ["youtube:Re6kp5CGlJI&t"],
+        "titletheory6":"Twisting Kick - bituro chagui 비투로 차구이",
+        "videos6": ["youtube:Re6kp5CGlJI&t"],
+        "titletheory7":"Hooking Kick - Goro Chagui 고로 차구이",
+        "videos7": ["youtube:Re6kp5CGlJI&t"],
+        "titletheory8":"Reverse Turning Kick - Bandae Dollyo Chagui 반다 돌리오 차구이",
+        "videos8": ["youtube:Re6kp5CGlJI&t"],    
+        "videos": ["youtube:Re6kp5CGlJI&t"],    
+        "category": "Teoria"
+    },
+    
+
 //************************** END OF THEORY SECTION *************************//
 
 //******************* PHILOSOPHY SECTION *********************************//

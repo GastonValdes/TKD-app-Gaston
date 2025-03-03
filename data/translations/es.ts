@@ -161,6 +161,40 @@ export const esContent: ListingTranslationType[] = [
         "theory5": "<Table> Español\tCoreano\tHangul\nRojo\tHong\t홍\nAzul\tChong\t청\nSepararse\tHaechyo\t해쳐\nContinuar\tGaesok\t계속\n1 Advertencia\tJu Ui Hana\t주의 하나\n1 Falta\tGam Jum Hana\t감점 하나\nTiempo\tSigan\t시간\nDetener el reloj\tJung-Ji\t정지\nGanador\tSung\t승\n1er Ronda\tIl He Jon\t일회전\n2da Ronda\tYi He Jon\t이회전\n3ra Ronda\tSam He Jon\t삼회전\nDescalificado\tSil Kyuk\t실격\nCompeticion Individual\tGeinJeon\t개인전\nCompeticion en equipo\tDanchejeon\t단체전",
         "category": "Teoria"
     },
+    {
+        "id": "37",
+        "name": "Nudo del Cinturon",
+        "image": "1erDAN.png",
+        "description": "Como se ata el cinturon en Taekwon-DO ITF",
+        "titletheory1":"Atando el cinturo de Taekwon-DO ITF",
+        "videos": ["youtube:Re6kp5CGlJI&t"],
+        "category": "Teoria"
+    },
+    {
+        "id": "38",
+        "name": "Ataques con pie",
+        "image": "1erDAN.png",
+        "description": "Ataques con pie de Taekwon-DO ITF",
+        "section1":"Patadas",
+        "titletheory1":"Patada lateral - Yop Chagui 욥 차귀",
+        "videos1": ["youtube:Re6kp5CGlJI&t"],
+        "titletheory2":"Patada Frontal - Ap Chagui 압 차귀",
+        "videos2": ["youtube:Re6kp5CGlJI&t"],
+        "titletheory3":"Patada Circular - Dollyo Chagui 돌리오 차귀",
+        "videos3": ["youtube:Re6kp5CGlJI&t"],
+        "titletheory4":"Patada hacia atrás - Tuit Chagui 투이트 차귀",
+        "videos4": ["youtube:Re6kp5CGlJI&t"],
+        "titletheory5":"Patada Descendente - Naeryo Chagui 내려료 차귀",
+        "videos5": ["youtube:Re6kp5CGlJI&t"],
+        "titletheory6":"Patada de Torcsión - bituro chagui 비투로 차구이",
+        "videos6": ["youtube:Re6kp5CGlJI&t"],
+        "titletheory7":"Patada de Gancho - Goro Chagui 고로 차구이",
+        "videos7": ["youtube:Re6kp5CGlJI&t"],
+        "titletheory8":"Patada con Giro de Talón - Bandae Dollyo Chagui 반다 돌리오 차구이",
+        "videos8": ["youtube:Re6kp5CGlJI&t"],        
+        "category": "Teoria"
+    },
+    
 //************************** END OF THEORY SECTION *************************//
 
 //******************* PHILOSOPHY SECTION *********************************//
