@@ -74,6 +74,15 @@ const imageMapping: Record<string, any> = {
     "moral3.png": require("@/assets/images/moral3.png"),
     "culturamoral.png": require("@/assets/images/culturamoral.png"),
     "Terminology.png": require("@/assets/images/Terminology.png"),
+    "patada.png": require("@/assets/images/patada.png"),
+    "yop-Chagui.jpg": require("@/assets/images/yop-Chagui.jpg"),
+    "Ap-Chagui.jpg": require("@/assets/images/Ap-Chagui.jpg"),
+    "dollyo-chagui.png": require("@/assets/images/dollyo-chagui.png"),
+    "tuit-Chagui.jpg": require("@/assets/images/tuit-Chagui.jpg"),
+    "neryo-Chagui.jpg": require("@/assets/images/neryo-Chagui.jpg"),
+    "bituro-Chagui.png": require("@/assets/images/bituro-Chagui.png"),
+    "goro-Chagui.png": require("@/assets/images/goro-Chagui.png"),
+    "bandae-dollyo.jpg": require("@/assets/images/bandae-dollyo.jpg"),
     
     // ... rest of your image mappings
 };

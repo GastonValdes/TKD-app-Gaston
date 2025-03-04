@@ -60,7 +60,7 @@ const imageMapping: Record<string, any> = {
     "moral3.png": require("@/assets/images/moral3.png"),
     "culturamoral.png": require("@/assets/images/culturamoral.png"),
     "Terminology.png": require("@/assets/images/Terminology.png"),
-    
+    "patada.png": require("@/assets/images/patada.png"),
 };
 
 interface ListingsProps {
