@@ -40,7 +40,7 @@ const imageMapping: Record<string, any> = {
     "defensaBaja.png": require("@/assets/images/defensaBaja.png"),
     "defensaMedia.png": require("@/assets/images/defensaMedia.png"),
     "defensaBajaManoAbrierta.png": require("@/assets/images/defensaBajaManoAbrierta.png"),
-    "apchagui.png": require("@/assets/images/apchagui.png"),
+    "apchagui2.png": require("@/assets/images/apchagui2.png"),
     "1_chonji.png": require("@/assets/images/1_chonji.png"),
     "2_dangun.png": require("@/assets/images/2_dangun.png"),
     "3_dosan.png": require("@/assets/images/3_dosan.png"),
