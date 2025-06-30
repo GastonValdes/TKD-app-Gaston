@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: December 28, 2024
+Last updated: June 30, 2025
 
 This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
 
@@ -23,7 +23,7 @@ For the purposes of this Privacy Policy:
 
 
 
-- __Company__ (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to ITF Taekwon-Do App.
+- __Company__ (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Hacker-Do.
 
 
 
@@ -200,4 +200,5 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 If you have any questions about this Privacy Policy, You can contact us:
 
 
-- By email: gastonvaldes@gmail.com
+- By email: gaston@hacker-do.es
+- through our website: https://hacker-do.es
