@@ -67,7 +67,6 @@ const imageMapping: Record<string, any> = {
     "ITF_Patterns_Poster_LowRes.png": require("@/assets/images/ITF_Patterns_Poster_LowRes.png"),
     "powerbrake2.png": require("@/assets/images/powerbrake2.png"),    
     "powerbrake.png": require("@/assets/images/powerbrake.png"),
-    "video1.mp4": require("@/assets/videos/video1.mp4"),
     "tul.png": require("@/assets/images/tul.png"),
     "sparring.jpg": require("@/assets/images/sparring.jpg"),
     "carta.jpg": require("@/assets/images/carta.jpg"),
